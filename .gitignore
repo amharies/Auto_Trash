@@ -1,0 +1,6 @@
+/.vscode
+target_0.txt
+target_1.txt
+.env
+node_modules
+__pycache__
