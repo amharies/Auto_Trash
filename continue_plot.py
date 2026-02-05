@@ -65,7 +65,7 @@ def predict_landing(xyz):
     if length == 0:
         return (0, 0)
 
-    linepts = vv[0] * np.mgrid[-7, 7:2j][:, np.newaxis]
+    linepts = vv[0] * np.mgrid[-7:7:2j][:, np.newaxis]
     linepts += datamean
     final_points = linepts.T.tolist()
     x1, x2 = final_points[0]

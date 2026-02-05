@@ -18,7 +18,7 @@ args = vars(arg_parser.parse_args())
 
 class Tracker():
     def find_ball(self, frame):
-        results = model.predict(frame, device="mps",
+        results = model.predict(frame, device=0,
                                 verbose=False, augment=False)
         return results[0].boxes
 
