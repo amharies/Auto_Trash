@@ -27,6 +27,39 @@ Our trash robot consists of a PETG 3D printed frame and four mecanum wheels powe
 
 While the original prototype used a Teensy 4.0, the latest revision uses an **ESP32** to handle wireless target reception via WiFi. We use the AccelStepper library to manage vector-based movement, continuously updating the robot's destination as the tracking system sends more accurate data during the trash's flight.
 
+## Hardware Setup (BOM)
+
+### **Electronics & Control**
+*   **1x ESP32-WROOM-32**: The main microcontroller managing Wi-Fi and motor pulse generation.
+*   **4x TB6560 Stepper Motor Drivers**: Industrial amplifiers pushing 12V power to the motors.
+*   **1x LM2596 Buck Converter**: Stepping down the battery voltage to a safe 5.0V for the ESP32.
+
+### **Power System**
+*   **1x 12.4V (3S) LiPo Battery**: High-discharge main power source.
+*   **1x USB Power Bank** *(Optional)*: Secondary clean power via micro-USB/USB-C for testing the ESP32.
+
+### **Drivetrain**
+*   **4x NEMA 17 Stepper Motors**: High-torque actuators (5mm shafts).
+*   **4x 80mm Mecanum Wheels**: Providing omnidirectional mobility.
+
+### **Chassis & "Hacks"**
+*   **Cardboard Base**: Lightweight main frame.
+*   **4x Vertical Sticks/Dowels**: Corner posts for the basket.
+*   **1x Trash Bag**: Stretched across posts to create the catching surface.
+*   **Aluminum Soda Can Strips**: Custom-cut shims to tighten loose wheel hubs.
+*   **Teflon Tape (PTFE)**: Wrapped on motor shafts for a friction-fit with wheels.
+*   **Hot Glue & Electrical Tape**: Securing posts, isolating wire hubs, and bonding shims.
+
+### **Wiring & Connections**
+*   **Jumper Wires**: Logic signals (ESP32 to `PUL+` / `DIR+`).
+*   **Wire Splice Hub**: Central bridge linking all `CLK-` and `CW-` wires to common ground.
+*   **Power Junction**: Solder-terminated 4-way split from battery to drivers.
+
+### **Off-Board Hardware**
+*   **1x Laptop**: Running Python, YOLOv8, and the Wi-Fi socket server.
+*   **1x External Camera (or Smartphone)**: Used for the second perspective on the stereo 3D vision.
+*   **Camera Mount/Tripod**: Maintaining the known distance between cameras for accurate triangulation.
+
 ## Project Structure & Features
  - **Coordinate Smoothing**: `track_ball.py` now uses a 4-frame moving average (via `deque`) to filter out sensor jitter and clean up the 3D trajectory.
  - **Socket Communication**: `sending_data.py` manages the wireless link. It watches the `prediction` file and pushes coordinates to the ESP32 IP over port 80.
