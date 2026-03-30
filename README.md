@@ -19,8 +19,7 @@ It consists of a setup of two cameras positioned towards the center of your room
 
 Our algorithm then takes the combined positions of the trash in both camera streams, performs 3D triangulation (Sine Law), and calculates the expected landing position using SVD-based trajectory fitting and kinematics (gravity constants). The target coordinates are then sent to our Trash robot wirelessly via **TCP/IP Sockets** to an **ESP32** microcontroller. We also have a real-time plotting script to visualize the flight path in 3D.
 
-Model: https://universe.roboflow.com/flatypus/trash-7kbr4
-![image](https://github.com/flatypus/trash/assets/68029599/2a8c83b2-8a8b-4aac-82f0-d0a88cc5092a)
+
 
 ## The Robot
 Our trash robot consists of a **reinforced cardboard chassis** and four mecanum wheels powered by Nema 17 stepper motors. Mecanum wheels allow for omnidirectional movement, enabling the most efficient path to the catch point. The steppers are driven by TB6560 drivers (3A at 35V), powered by a 3S, 2200mAh LiPo battery.
