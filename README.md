@@ -23,7 +23,7 @@ Model: https://universe.roboflow.com/flatypus/trash-7kbr4
 ![image](https://github.com/flatypus/trash/assets/68029599/2a8c83b2-8a8b-4aac-82f0-d0a88cc5092a)
 
 ## The Robot
-Our trash robot consists of a PETG 3D printed frame and four mecanum wheels powered by Nema 17 stepper motors. Mecanum wheels allow for omnidirectional movement, enabling the most efficient path to the catch point. The steppers are driven by TB6560 drivers (3A at 35V), powered by a 3S, 2200mAh LiPo battery.
+Our trash robot consists of a **reinforced cardboard chassis** and four mecanum wheels powered by Nema 17 stepper motors. Mecanum wheels allow for omnidirectional movement, enabling the most efficient path to the catch point. The steppers are driven by TB6560 drivers (3A at 35V), powered by a 3S, 2200mAh LiPo battery.
 
 While the original prototype used a Teensy 4.0, the latest revision uses an **ESP32** to handle wireless target reception via WiFi. We use the AccelStepper library to manage vector-based movement, continuously updating the robot's destination as the tracking system sends more accurate data during the trash's flight.
 
