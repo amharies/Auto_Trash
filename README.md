@@ -1,18 +1,24 @@
 # Trash
 
-This project is Trash. 
 
-## Okay, so why did you make it?
-Think about that time you were sitting in your bed, watching YouTube, eating snacks. You finish your bag of chips, or that candy bar, and you're left with some garbage. In the spirit of being clean and tidy, you want to throw that trash in the trash can. 
+## **The Motivation: The Interception Problem**
+Most mobile robots are built for predictable tasks—like following lines or avoiding static walls. But intercepting a fast-moving, flying object in mid-air is a completely different challenge. 
 
-But wait! It's across the room! Now, what do you do? Your eyes squint, you turn around, and chuck that piece of trash towards the trash can...and yet despite your efforts, the trash bounces off the wall and on the floor.
+A standard steered vehicle (like an RC car) takes too long to maneuver because it has to stop, turn its wheels, and then drive forward. When an object is falling, you don't have time for a turning radius. 
 
-You sigh. You get up from your bed, walk over, and place the trash in the trash can. You get back in bed, and keep watching YouTube. All this time, you think back to that moment that you missed.
+We built **Auto-Trash** to solve this. Instead of turning, it uses an omnidirectional (Mecanum) drivetrain to instantly "strafe" sideways or diagonally to catch the target exactly where it lands.
 
-There had to be a better way.
+## **A Multidisciplinary Engineering Project**
+Catching a projectile isn't just a software problem; it requires hardware and physical structure to react in milliseconds. This project integrates three core engineering disciplines:
 
-## The better way.
-We were you at some point in time. We realized the five seconds it took for you to get up, put the trash in the can, and get back in bed is time you will never get back. So, to all of you who have shared this emotional experience, we have built Trash.
+* **Software & AI (The Brain):** Using YOLOv8 and stereo cameras to track the flying object, and applying real-time physics to predict its exact 3D landing coordinates.
+* **Electrical & Power (The Nervous System):** Designing a dual-voltage power system that safely drives high-torque industrial stepper motors (12V) alongside a low-voltage logic controller (5V) without causing electrical failure.
+* **Mechanical & Structural (The Muscle):** Engineering a custom, low-center-of-gravity chassis and reinforcing the mechanical wheel couplings so the robot can handle sudden, jerky accelerations without vibrating apart or tipping over.
+
+The result is a fully autonomous vehicle that bridges the gap between computer vision and physical, high-speed hardware actuation.
+
+***
+
 ![Auto Trash Build](building_image.jpeg)
 
 It consists of a setup of two cameras positioned towards the center of your room, where your trash can is. These cameras send the data stream over to the garbage tracking algorithm, which detects the garbage in each camera using a custom trained YOLOV8 model with over 14,000 hand-labeled images. 
