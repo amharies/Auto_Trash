@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "c1": "nodemon --exec python3 track_ball.py -v=0",
-    "c2": "nodemon --exec python3 track_ball.py -v=1",
-    "plot" : "nodemon --exec python3 continue_plot.py",
+    "c1": "nodemon --exec python track_ball.py -v=0",
+    "c2": "nodemon --exec python track_ball.py -v=1",
+    "plot": "nodemon --exec python continue_plot.py",
     "dev": "concurrently \"pnpm c1\" \"pnpm c2\" \"pnpm plot\"",
-    "start": "concurrently \"python3 track_ball.py -v=0\" \"python3 track_ball.py -v=1\" \"python3 continue_plot.py\""
+    "start": "concurrently \"python track_ball.py -v=0\" \"python track_ball.py -v=1\" \"python continue_plot.py\""
   },
   "keywords": [],
   "author": "",
